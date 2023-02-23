@@ -5,7 +5,9 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+For this assignment we were tasked with examining Seattle Public Library (SPL) data. The specific .csv data file I chose to analyze was collected by the SPL "includ[ing] a monthly count of Seattle Public Library checkouts by title for physical and electronic items" spanning from 2013 to 2023. Using this data set I specifically decided to take a look at the effect COVID-19 had on SPL checkouts. I examined the various different types of medias that can be checked out from the library; how the check out rate has fluctuated for each media over the past 10 years -- observing drastic changes in recent times during the COVID-19 pandemic. Along with that, I  more specifically took a closer look at the year 2020; the defining year of the pandemic. For the year 2020, I analyzed more specific statistics including the leading creators at the SPL in 2020, subjects, and more. 
+
+I chose to focus on 2020 and the effects of COVID-19 in relation to the SPL because I was compelled to learn about more local impacts of the pandemic. Everything we saw on the news in the year 2020 was about COVID-19 cases and deaths, people having to work from home, and school cancellations. The effects the pandemic had on library checkouts is not exactly the first thing I think of when I think about the effects of the pandemic, so i was excited to learn more.
 
 ### Summary Information
 
