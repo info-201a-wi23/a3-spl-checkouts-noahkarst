@@ -1,6 +1,5 @@
 #Load Libraries
 library("dplyr")
-library("treemap")
 library("stringr")
 library("ggplot2")
 library("scales")
