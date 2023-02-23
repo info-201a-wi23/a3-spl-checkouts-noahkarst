@@ -5,16 +5,16 @@ library("ggplot2")
 library("scales")
 
 # data frame 2
-df2 <- read.csv("~/Downloads/2022-2023-All-Checkouts-SPL-Data.csv", stringsAsFactors = FALSE)
+df <- read.csv("~/Downloads/2013-2023-5-Checkouts-SPL.csv", stringsAsFactors = FALSE)
 
-# filter to not include 2023
-spl_df2 <- df2 %>% filter(CheckoutYear < 2023)
+# filter to only include 2020
+spl_df2 <- df %>% filter(CheckoutYear == 2020)
 
-# Filtering for the top 10 Creators in 2022
+# Filtering for the top 10 Creators in 2020
 creator_checkouts <- spl_df2 %>% group_by(Creator) %>% summarize(total_checkouts = sum((Checkouts))) %>% na_if("") %>% na.omit
 top10creators <- creator_checkouts %>% arrange(desc(total_checkouts)) %>% slice(1:10)
 
-# Plotting the top 10 Authors in 2022
+# Plotting the top 10 Authors in 2020
 ggplot(top10creators) + 
   geom_col(aes(x = total_checkouts, y = reorder(Creator, +total_checkouts), fill = Creator))
 

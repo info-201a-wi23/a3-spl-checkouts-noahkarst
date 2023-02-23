@@ -5,10 +5,10 @@ library("ggplot2")
 library("scales")
 
 # data frame
-df1 <- read.csv("~/Downloads/2013-2023-5-Checkouts-SPL.csv", stringsAsFactors = FALSE)
+df <- read.csv("~/Downloads/2013-2023-5-Checkouts-SPL.csv", stringsAsFactors = FALSE)
 
 # filter to not include 2023
-spl_df1 <- df1 %>% filter(CheckoutYear < 2023)
+spl_df1 <- df %>% filter(CheckoutYear < 2023)
 
 ####
 
