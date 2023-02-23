@@ -13,7 +13,7 @@ df1 <- read.csv("~/Downloads/2013-2023-5-Checkouts-SPL.csv", stringsAsFactors = 
 spl_df1 <- df1 %>% filter(CheckoutYear < 2023)
 
 # In what months do people check out books the most, or what time of year?
-# Look at trends in 2021
+Checkouts_per_month <- spl_df1 %>% group_by(CheckoutMonth) %>% summarize(total_checkouts = sum((Checkouts)))
 
 ####
 
@@ -45,8 +45,6 @@ df2 <- read.csv("~/Downloads/2022-2023-All-Checkouts-SPL-Data.csv", stringsAsFac
 # filter to not include 2023
 spl_df2 <- df2 %>% filter(CheckoutYear < 2023)
 
-####
-
 # In 2022, of all books checked out, on average they were checked out 3 times over the past year.
 avg_num_checkouts <- (sum(spl_df2$Checkouts))/(nrow(spl_df2))
 
@@ -66,16 +64,12 @@ treemap(top30subjects,
 ####
 
 # Filtering for the top 15 Authors in 2022
-creator_checkouts <- spl_df2 %>% group_by(Creator) %>% summarize(total_checkouts = sum((Checkouts)))
-creator_checkouts <- creator_checkouts %>% na_if("") %>% na.omit
+creator_checkouts <- spl_df2 %>% group_by(Creator) %>% summarize(total_checkouts = sum((Checkouts))) %>% na_if("") %>% na.omit
 top15creators <- creator_checkouts %>% arrange(desc(total_checkouts)) %>% slice(1:15)
 
-
 # Plotting the top 15 Authors in 2022
-
-
-
-
+ggplot(top15creators) + 
+  geom_col(aes(x = total_checkouts, y = reorder(Creator, +total_checkouts), fill = Creator))
 
 ####
 
