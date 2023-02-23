@@ -1,5 +1,6 @@
 #Load Libraries
 library("dplyr")
+library("treemap")
 library("stringr")
 library("ggplot2")
 library("scales")
@@ -10,6 +11,9 @@ df1 <- read.csv("~/Downloads/2013-2023-5-Checkouts-SPL.csv", stringsAsFactors = 
 
 # filter to not include 2023
 spl_df1 <- df1 %>% filter(CheckoutYear < 2023)
+
+# In what months do people check out books the most, or what time of year?
+# Look at trends in 2021
 
 ####
 
@@ -41,28 +45,37 @@ df2 <- read.csv("~/Downloads/2022-2023-All-Checkouts-SPL-Data.csv", stringsAsFac
 # filter to not include 2023
 spl_df2 <- df2 %>% filter(CheckoutYear < 2023)
 
+####
 
 # In 2022, of all books checked out, on average they were checked out 3 times over the past year.
 avg_num_checkouts <- (sum(spl_df2$Checkouts))/(nrow(spl_df2))
 
+####
 
-#most popular genre in 2022?
+# Filtering for the 30 most popular book subjects in 2022
+subjects_checkouts <- spl_df2 %>% group_by(subjects = sub(", .*", "", Subjects)) %>% summarize(total_checkouts = sum((Checkouts)))
+top30subjects <- subjects_checkouts %>% arrange(desc(total_checkouts)) %>% slice(1:30)
 
-spl_df2 <- spl_df2 %>% mutate(Make = sub(" .*", "", Subjects))
+treemap(top30subjects,
+        index=c("subjects"),
+        vSize="total_checkouts",
+        type="index",
+        title = "Top 30 Book Subjects checked out in 2022",
+        fontsize.labels = 10)
 
-subjects_checkouts <- spl_df2 %>% group_by(sub(" .*", "", Subjects)) %>% summarize(total_checkouts = sum((Checkouts)))
+####
+
+# Filtering for the top 15 Authors in 2022
+creator_checkouts <- spl_df2 %>% group_by(Creator) %>% summarize(total_checkouts = sum((Checkouts)))
+creator_checkouts <- creator_checkouts %>% na_if("") %>% na.omit
+top15creators <- creator_checkouts %>% arrange(desc(total_checkouts)) %>% slice(1:15)
+
+
+# Plotting the top 15 Authors in 2022
 
 
 
-ggplot(subjects_checkouts, aes(area = value, fill = group)) +
-  geom_treemap()
 
-# In what months do people check out books the most, or what time of year?
-
-# Most popular author in 2022 who had the most checkotus?
-
-
-# 10 characters
 
 ####
 
