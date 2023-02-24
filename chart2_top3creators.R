@@ -25,23 +25,26 @@ topcreators_oct <- spl_df2 %>% group_by(Creator) %>% filter(CheckoutMonth == 10)
 topcreators_nov <- spl_df2 %>% group_by(Creator) %>% filter(CheckoutMonth == 11) %>% summarize(total_checkouts = sum((Checkouts))) %>% na_if("") %>% na.omit %>% arrange(desc(total_checkouts)) %>% slice(1:5) %>% add_column(month = "Nov")
 topcreators_dec <- spl_df2 %>% group_by(Creator) %>% filter(CheckoutMonth == 12) %>% summarize(total_checkouts = sum((Checkouts))) %>% na_if("") %>% na.omit %>% arrange(desc(total_checkouts)) %>% slice(1:5) %>% add_column(month = "Dec")
 
-
 # graphing the top 5 creators for each month in 2020
 ggplot() + 
-  geom_point(data = topcreators_jan, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_feb, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_mar, aes(x = month, y = total_checkouts, group = 1, col = Creator)) +
-  geom_point(data = topcreators_apr, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_may, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_jun, aes(x = month, y = total_checkouts, group = 1, col = Creator)) +
-  geom_point(data = topcreators_jul, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_aug, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_sep, aes(x = month, y = total_checkouts, group = 1, col = Creator)) +
-  geom_point(data = topcreators_oct, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_nov, aes(x = month, y = total_checkouts, group = 1, col = Creator)) + 
-  geom_point(data = topcreators_dec, aes(x = month, y = total_checkouts, group = 1, col = Creator)) +
+  geom_point(data = topcreators_jan, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_feb, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_mar, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) +
+  geom_point(data = topcreators_apr, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_may, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_jun, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) +
+  geom_point(data = topcreators_jul, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_aug, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_sep, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) +
+  geom_point(data = topcreators_oct, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_nov, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) + 
+  geom_point(data = topcreators_dec, aes(x = month, y = total_checkouts, group = 1, col = Creator, shape = 20, size = 1)) +
+  scale_shape_identity() +
   labs(title = "Top Creators of 2020", x = "Months", y = "Total # of Checkouts") +
   scale_x_discrete(limits = month.abb) +
   scale_y_continuous(labels = label_number_si())
 
+
+
+help(shape)
 ####
