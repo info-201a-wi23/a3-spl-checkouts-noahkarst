@@ -13,13 +13,7 @@ I chose to focus on 2020 and the effects of COVID-19 in relation to the SPL beca
 
 Using the data set, I was able to analyze the drastic effect COVID-19 had on how many people were checking out different medias at the Seattle Public Library. As can be seen in the "trends over time" graph, in the year 2020 book checkouts took a massive drop. In 2019 the lowest number of books that had been checkout in a month was around 190,000 while the lowest number of books that had been checked out in a month in 2020 was 641. That is an insurmountable decrease. In 2020, it can be observed that eBooks and audio books continue on the rise. Putting this increase for eBooks and audio books into perspective, around 600,000 books were checked out in the year 2022, while around 1,000,000 eBooks were checked out in 2022. In terms of the increase in audio book check outs, it can be observed that on average an audio book was checked out 21 times in 2022, while on average a book was checked out 10 times in 2022. It is crazy to that this number is more than double.
 
-Additionally, I looked at trends in terms of the most popular subjects and creators for items checked out. As can be seen in my third graph, the most popular subject checked out in 2022 was fiction with 897,379 item check outs. This did not particularly surprise me as I also computed the top authors of 2020; being ____, who is a fictional writer. 
-
-
-
-
-
-
+Additionally, I looked at trends in terms of the most popular subjects and creators for items checked out. As can be seen in my third graph, the most popular subject checked out in 2022 was fiction with 897,379 item check outs. This did not particularly surprise me as I also computed the top authors of 2020; the most checked out author being ____, who is a fictional writer. 
 
 ### The Dataset
 
