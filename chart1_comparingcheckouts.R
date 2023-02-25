@@ -12,20 +12,11 @@ spl_df1 <- df %>% filter(CheckoutYear < 2023)
 
 ####
 
-# BOOK checkouts per yr
-book_checkouts_yr <- spl_df1 %>% filter(MaterialType == "BOOK") %>% group_by(CheckoutYear) %>% summarize(total_checkouts = sum(Checkouts))
-
-# EBOOK checkouts per yr
-ebook_checkouts_yr <- spl_df1 %>% filter(MaterialType == "EBOOK") %>% group_by(CheckoutYear) %>% summarize(total_checkouts = sum(Checkouts))
-
-# AUDIOBOOK checkouts per yr
-audiobook_checkouts_yr <- spl_df1 %>% filter(MaterialType == "AUDIOBOOK") %>% group_by(CheckoutYear) %>% summarize(total_checkouts = sum(Checkouts))
+materialtype_trend <- spl_df1 %>% filter(MaterialType %in% c("BOOK", "EBOOK", "AUDIOBOOK")) %>% group_by(CheckoutYear, MaterialType) %>% summarize(total_checkouts = sum(Checkouts))
 
 # Plotting the comparison
-ggplot() + 
-  geom_line(data = book_checkouts_yr, aes(x = CheckoutYear, y = total_checkouts, group = 1), colour = "blue") + 
-  geom_line(data = ebook_checkouts_yr, aes(x = CheckoutYear, y = total_checkouts, group = 1), colour = "red") + 
-  geom_line(data = audiobook_checkouts_yr, aes(x = CheckoutYear, y = total_checkouts, group = 1), colour = "green") +
+ggplot(materialtype_trend) + 
+  geom_line(aes(x = CheckoutYear, y = total_checkouts, col = MaterialType)) +
   labs(title = "Comparing Book, eBook, and Audiobook checkouts from 2013 - 2022", x = "Checkout Year", y = "Total # of Checkouts") +
   scale_x_continuous(breaks = seq(2013, 2022, 1)) + 
   scale_y_continuous(labels = label_number_si())
