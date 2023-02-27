@@ -43,7 +43,10 @@ top10subjects <- spl_df2 %>% group_by(subjects = sub(", .*", "", Subjects)) %>%
 ####
 
 # Filtering for top 3 creators each month of 2020
-top3creators_2020 <- spl_df2 %>% group_by(CheckoutMonth, Creator) %>% summarize(total_checkouts = sum(Checkouts)) %>% na_if("") %>% na.omit %>% arrange(desc(total_checkouts)) %>% slice(1:3)
+top3creators_months2020 <- spl_df2 %>% group_by(CheckoutMonth, Creator) %>% summarize(total_checkouts = sum(Checkouts)) %>% na_if("") %>% na.omit %>% arrange(desc(total_checkouts)) %>% slice(1:3)
+
+# Filtering for the top 3 creators of 2020
+top3creators_2020 <- spl_df2 %>% group_by(Creator) %>% summarize(total_checkouts = sum(Checkouts)) %>% na_if("") %>% na.omit %>% arrange(desc(total_checkouts)) %>% slice(1:3)
 
 ####
 
