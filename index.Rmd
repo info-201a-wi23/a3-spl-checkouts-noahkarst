@@ -13,7 +13,7 @@ I chose to focus on 2020 and the effects of COVID-19 in relation to the SPL beca
 
 Using the data set, I was able to analyze the drastic effect COVID-19 had on how many people were checking out different medias at the Seattle Public Library. As can be seen in the "trends over time" graph, in the year 2020 book checkouts took a massive drop. In 2019 the lowest number of books that had been checkout in a month was around 190,000 while the lowest number of books that had been checked out in a month in 2020 was 641. That is an insurmountable decrease. In 2020, it can be observed that eBooks and audio books continue on the rise. Putting this increase for eBooks and audio books into perspective, around 600,000 books were checked out in the year 2022, while around 1,000,000 eBooks were checked out in 2022. In terms of the increase in audio book check outs, it can be observed that on average an audio book was checked out 21 times in 2022, while on average a book was checked out 10 times in 2022. It is crazy to that this number is more than double.
 
-Additionally, I looked at trends in terms of the most popular subjects and creators for items checked out. As can be seen in my third graph, the most popular subject checked out in 2022 was fiction with 897,379 item check outs. This did not particularly surprise me as I also computed the top authors of 2020; the most checked out author being ____, who is a fictional writer. 
+Additionally, I looked at trends in terms of the most popular subjects and creators for items checked out. As can be seen in my third graph, the most popular subject checked out in 2020 was fiction with 897,379 item check outs. This did not particularly surprise me as I also computed the top authors of 2020; the most checked out being fiction author J.K. Rowling with nearly 20,000 checkouts.
 
 ### The Dataset
 
@@ -27,45 +27,23 @@ Regardless of how difficult the data set size may make it to interpret, taking a
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+My first chart shows the trend over time of how many normal books, eBooks, and audio books were checked out each year from 2013 to 2022. I decided to create this chart as I was curious if COVID-19 would have any sort of impact on these rates. As can be seen, in the year 2020, which was the defining year of the COVID-19 pandemic regular book checkout rates took a massive dive. One can infer that this occurred because most public places were somewhat inaccessible during the pandemic. It can also be observed that both eBooks and audio books were unaffected by this in 2020, as their checkout rates continued to climb compared to the previous year 2019.
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_comparingcheckouts.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart1_comparingcheckouts.R")}
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+My second chart shows the trend over time of the most popular authors in the year 2020. I decided to take a closer look at authors in the specific year 2020 because of the checkout dip that took place in the year 2020 as seen in the previous graph, and I wanted to see how this would affect what authors were most popular. Taking a look at what types of novels each of these authors write patterns can be established. The first couple months of the year it can be analyzed that the most popular novels are cartoons, though, when transitioning into the middle of the year when the black lives matters protest/movement was at a all time high, creators who wrote about racial injustice became more popular. Then again, in the later months of the year audiences turned more towards creators who wrote fiction such as J.K. Rowling who was the most popular author in 2020.
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_top3creators.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart2_top3creators.R")}
 ```
 
 ### Your Choice
+
+
+
+
 
 The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
 
@@ -75,7 +53,7 @@ The last chart is up to you. It could be a line plot, scatter plot, histogram, b
 
 Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart3_top10subjects.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart3_top10subjects.R")}
 ```
 
 
