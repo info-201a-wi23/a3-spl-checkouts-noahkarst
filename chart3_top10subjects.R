@@ -18,9 +18,13 @@ top10subjects <- spl_df2 %>% group_by(subjects = sub(", .*", "", Subjects)) %>%
 
 # Plotting the top 10 subjects in 2020
 
-ggplot(top10subjects) +
-  geom_treemap(aes(fill = subjects, area = total_checkouts)) +
-  geom_treemap_text(aes(area = total_checkouts, label = paste0(subjects, "\n", total_checkouts)), colour = "white", place = "centre") +
-  theme(legend.position = "none")
+colores <- scales::brewer_pal(palette = "Paired")(10)
+ggplot(top10subjects, aes(label = paste0(subjects, "\n", total_checkouts), area = total_checkouts, fill = subjects)) +
+  geom_treemap() +
+  labs(title = "Top Subjects of 2020", caption = paste0("African American Fiction", "\n", "48519")) +
+  geom_treemap_text(colour = "white", place = "centre") +
+  scale_fill_manual("", breaks = top10subjects$subjects[c(10)], values = setNames(colores, top10subjects$subjects)) +
+  theme(legend.position = "none") +
+  theme(plot.caption = element_text(color = "purple", face = "bold", size = 12))
 
 ####
